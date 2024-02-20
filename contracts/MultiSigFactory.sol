@@ -5,8 +5,8 @@ import "./MultiSig.sol";
 contract MultiSigFactory {
     MultiSig[] multiSigClones;
 
-    function createMultiSigWallet(address[] memory _validSigners, uint256 _quorum) external returns (MultiSig newMulSig_, uint256 length_) {
-        newMulSig_ = new MultiSig(_validSigners, _quorum);
+    function createMultiSigWallet(address[] memory _validSigners, uint256 _requiredNum) external returns (MultiSig newMulSig_, uint256 length_) {
+        newMulSig_ = new MultiSig(_validSigners, _requiredNum);
 
         multiSigClones.push(newMulSig_);
 

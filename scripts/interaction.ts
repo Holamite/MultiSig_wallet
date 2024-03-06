@@ -7,7 +7,7 @@ async function main() {
     "0xf8E1d24aD086738fF31D31040967507801377B64",
     "0x4d247D5b8c20c4Ead7903BE3b1bA2953A6335C93",
   ];
-  const quorum = 3;
+  const _requiredNum = 3;
 
   const multiSigFactoryContract = "0xF7Bb849857e48877f39007BabaC0E4DdC5fD1B5C";
   const MULTISIGFACTORY = await ethers.getContractAt(
@@ -17,7 +17,7 @@ async function main() {
 
   const createWalletTx = await MULTISIGFACTORY.createMultiSigWallet(
     validSigners,
-    quorum
+    _requiredNum
   );
   await createWalletTx.wait();
 
